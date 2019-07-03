@@ -1,4 +1,5 @@
 FROM jenkins/jenkins:lts
+
 USER root
 RUN apt-get update && \
 apt-get -y install apt-transport-https \
@@ -15,4 +16,8 @@ apt-get update && \
 apt-get -y install docker-ce
 RUN apt-get install -y docker-ce
 RUN usermod -a -G docker jenkins
+
 USER jenkins
+
+EXPOSE 8090
+EXPOSE 4243
